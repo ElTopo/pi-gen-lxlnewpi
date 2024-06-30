@@ -1,0 +1,11 @@
+
+# === lxl's tmpfs ===
+tmpfs           /tmp            tmpfs   nodev,nosuid,relatime,size=80%,mode=1777  0 0
+tmpfs           /var/empty      tmpfs   nodev,nosuid,relatime,size=80%,mode=0755  0 0
+tmpfs           /var/mail       tmpfs   nodev,nosuid,relatime,size=80%,mode=1755  0 0
+tmpfs           /var/log        tmpfs   nodev,nosuid,relatime,size=80%,mode=0777  0 0
+tmpfs           /var/cache      tmpfs   nodev,nosuid,relatime,size=80%,mode=0777  0 0
+tmpfs           /var/tmp        tmpfs   nodev,nosuid,relatime,size=80%,mode=1777  0 0
+tmpfs           /mnt/lxlcache   tmpfs   nodev,nosuid,relatime,size=80%,mode=0777  0 0
+# === lxl's tmpfs ===
+# vim: set sw=2 et ts=2:

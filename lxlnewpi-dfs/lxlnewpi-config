@@ -1,0 +1,22 @@
+# the name of the image to build
+IMG_NAME=lxlnewpios
+# default system locale
+LOCALE_DEFAULT='en_US.UTF-8'
+# hostname, discoverable as 'lxlnewpi.local'
+TARGET_HOSTNAME=lxlnewpi
+# default keyboard keymap
+KEYBOARD_KEYMAP=us
+# dfault keyboard layout
+KEYBOARD_LAYOUT='English (US)'
+# default system timezone
+TIMEZONE_DEFAULT='America/Los_Angeles'
+# first user name (uid: 1000)
+FIRST_USER_NAME=lxl
+# first user's password
+FIRST_USER_PASS=olicon
+# disable the renaming of the first user during the first boot
+DISABLE_FIRST_BOOT_USER_RENAME=1
+# default WLAN regulatory domain and unblocks WLAN interfaces
+WPA_COUNTRY=US
+# enable ssh server
+BLE_SSH=1
