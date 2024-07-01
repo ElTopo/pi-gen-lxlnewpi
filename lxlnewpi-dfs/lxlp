@@ -12,6 +12,8 @@ else
 fi
 export PS1
 
+ips() { ip -o addr | awk '!/^[0-9]*: ?lo|link\/ether/ {gsub("/", " "); print $2" "$4}'; }
+
 alias alu='apt list --upgradable'
 alias aptclean='sudo sh -c "apt-get -y autoremove && apt-get -y clean"'
 alias aptu='sudo sh -c "apt update &&  apt upgrade"'

@@ -1,5 +1,15 @@
+# build release (bookworm) and arch (armhf)
+# update RELEASE for new release!
+# Don't forget to update stage0/prerun.sh
+RELEASE=bookworm
+ARCH=armhf
+
+# pi-gen issue
+PI_GEN="pi-gen-lxlnewpi"
+PI_GEN_REPO="https://github.com/ElTopo/pi-gen-lxlnewpi"
+
 # the name of the image to build
-IMG_NAME=lxlnewpios
+IMG_NAME=lxlnewpios-$RELEASE-$ARCH
 # deploy format
 DEPLOY_COMPRESSION=none
 #DEPLOY_COMPRESSION=zip
@@ -22,4 +32,4 @@ DISABLE_FIRST_BOOT_USER_RENAME=1
 # default WLAN regulatory domain and unblocks WLAN interfaces
 WPA_COUNTRY=US
 # enable ssh server
-BLE_SSH=1
+ENABLE_SSH=1
