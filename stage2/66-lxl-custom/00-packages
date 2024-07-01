@@ -1,9 +1,12 @@
 zram-tools
 busybox-static
 sshguard
+rsyslog
 tmux
 vim
 git
+tig
+overlayroot
 bvi
 btop
 lsof

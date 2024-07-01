@@ -1,5 +1,8 @@
 # the name of the image to build
 IMG_NAME=lxlnewpios
+# deploy format
+DEPLOY_COMPRESSION=none
+#DEPLOY_COMPRESSION=zip
 # default system locale
 LOCALE_DEFAULT='en_US.UTF-8'
 # hostname, discoverable as 'lxlnewpi.local'
