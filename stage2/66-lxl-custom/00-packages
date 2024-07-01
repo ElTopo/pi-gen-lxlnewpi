@@ -6,6 +6,8 @@ tmux
 vim
 git
 tig
+apt-file
+apt-show-versions
 overlayroot
 bvi
 btop
