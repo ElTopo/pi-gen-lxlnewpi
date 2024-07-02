@@ -91,3 +91,9 @@ alias vv='vi -MR +"unmap gx" +"map q :qa!<CR>" +"map g :1<CR>" +"map G :$<CR>" +
 alias ws='w -s'
 alias xfsck='grep "systemd\-fsck" /var/log/syslog'
 alias zz='axel'
+
+# show system's current rootfs status
+grep -q "overlayroot=tmpfs" /proc/cmdline && \
+        printf "\n===== running ROFS =====\n\n"  || \
+        printf "\n===== running RWFS =====\n\n"
+
