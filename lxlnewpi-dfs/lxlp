@@ -94,6 +94,6 @@ alias zz='axel'
 
 # show system's current rootfs status
 grep -q "overlayroot=tmpfs" /proc/cmdline && \
-        printf "\n===== running ROFS =====\n\n"  || \
-        printf "\n===== running RWFS =====\n\n"
+        echo -e "\n\e[31m===== running ROFS =====\e[0m" || \
+        echo -e "\n\e[32m===== running RWFS =====\e[0m"
 
