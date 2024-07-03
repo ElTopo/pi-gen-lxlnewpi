@@ -54,6 +54,7 @@ do
       RB2_FS=1
     ;;
     *)
+	    echo "${RED}!!!unknown param: [$1]!!! ignored.${NC}"
     ;;
   esac
   shift
