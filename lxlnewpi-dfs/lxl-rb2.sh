@@ -147,9 +147,10 @@ then
   exit 1
 fi
 
-if [ $NOW_FS -eq 1 ]
+if [ $(raspi-config nonint get_bootro_conf) -ne 0 ]
 then
-  # always change bootpar to 'ro' in bootpar
+  # bootpar is NOT set to 'ro' in fstab
+  # always change bootpar to 'ro' in fstab
   if raspi-config nonint enable_bootro
   then
     echo "===> bootpar is configured as 'ro' in fstab."
