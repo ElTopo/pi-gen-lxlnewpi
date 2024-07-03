@@ -1,25 +1,47 @@
 # quick settings of some aliaes, bash prompt, etc.
 # this file will be created in ~lxl, remove it when you have git repos cloned.
 #
-# . this file / source this file
+# to use this file:
+#   . this_file
+# or
+#   source this_file
+# or add
+#   . this_file
+# in your ~/.profile
 
+# bash prompt
 iam=$(whoami)
 if [ "$iam" = "root" ] ; then
   # all red
-    PS1="\[\e[31;1m\][\H \[\e[31;1m\]\w] \[\e[0m\]"
+  PS1="\[\e[31;1m\][\H \[\e[31;1m\]\w] \[\e[0m\]"
 else
-    PS1="\[\e[38;5;20m\][\[\e[38;5;28m\]\H \[\e[38;5;20m\]\w] \[\e[0m\]"
+  PS1="\[\e[38;5;20m\][\[\e[38;5;28m\]\H \[\e[38;5;20m\]\w] \[\e[0m\]"
 fi
 export PS1
 
+# functions, can be used as commands
+
+# list all IPS
 ips() { ip -o addr | awk '!/^[0-9]*: ?lo|link\/ether/ {gsub("/", " "); print $2" "$4}'; }
 
+# show system's current rootfs status
+pov () {
+  grep -q "overlayroot=tmpfs" /proc/cmdline && \
+    echo -e "\n\e[31m===== running ROFS =====\e[0m" || \
+    echo -e "\n\e[32m===== running RWFS =====\e[0m"
+}
+
+# aliases
 alias alu='apt list --upgradable'
 alias aptclean='sudo sh -c "apt-get -y autoremove && apt-get -y clean"'
 alias aptu='sudo sh -c "apt update &&  apt upgrade"'
 alias crontab='crontab -i'
+alias bprw='sudo mount -o remount,rw /boot/firmware'
+alias bpro='sudo sh -c "sync; sync; mount -o remount,ro /boot/firmware"'
 alias df='df -h'
-alias diff='colordiff'
+if [ -x /usr/bin/colordiff ]; then
+	alias diff='colordiff'
+fi
 alias dir='ls -lhFAtr --color=auto'
 alias dmesg='dmesg -Tk'
 alias dsdf='df -h | grep "^overlay\|^\/dev\/root\|^\/dev\/sd\|^/dev\/mmc\|^drvfs\|^[A-Z]:"'
@@ -27,8 +49,6 @@ alias dvi='vi -c "set background=dark"'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias haltx='sudo sh -c "sync && halt -p"'
-alias iptl='sudo sh -c "echo ========= ipv4 =========; iptables -L -n; echo ========= ipv6 =========; ip6tables -L -n"'
-alias iptlv='sudo sh -c "echo ========= ipv4 =========; iptables -L -v; echo ========= ipv6 =========; ip6tables -L -v"'
 alias las='last -6'
 alias less='less -FRX'
 alias ll='ls -lFAtr --color=none'
@@ -49,26 +69,16 @@ alias pdm='dmesg --color=always | less'
 alias pls='sudo lsof -nPiTCP -sTCP:LISTEN'
 alias pnete='sudo sh -c "netstat -anp | grep --color=auto ESTABLISHED"'
 alias pnetl='sudo sh -c "netstat -anp | grep --color=auto LISTEN"'
-alias pov='/home/lxl/MYGITs/linuxfiles/scripts/lxl-change-rootfs/lxl-overlayroot.sh'
 alias psme='ps -f -U $UID --width=512'
 alias pstree='pstree -hlU'
-alias qov='~/bin/lxl-qsoverlayroot.sh'
 alias rbr='cargo build --release'
 alias rebootfx='sudo sh -c "touch /forcefsck && sync && reboot"'
 alias rebootx='sudo sh -c "sync && reboot"'
-alias reconfrc='sudo dpkg-reconfigure sysv-rc'
 alias rscp='rsync -a --progress'
-alias rscp.sh='scp-resume.sh'
+#alias rscp.sh='scp-resume.sh'
 alias rsmv='rsync -a --progress --remove-source-files'
 alias s10='ps -eo size,pid,user,args --sort=-size | head -n 11'
 alias stf='sudo tail -vF /var/log/syslog'
-alias svni='svn ci'
-alias svnl='svn log -v'
-alias svnlc='svn diff -r PREV:HEAD'
-alias svno='svn co'
-alias svns='svn st | /bin/grep -v ^?'
-alias svnt='svn st -u | /bin/grep "^        *"'
-alias svnu='svn up'
 alias sysfail='/bin/systemctl --failed'
 alias syst='/bin/systemctl status'
 alias sysuc='sudo sh -c "apt-get update && apt-get upgrade && apt-get -y autoremove && apt-get -y clean"'
@@ -92,8 +102,7 @@ alias ws='w -s'
 alias xfsck='grep "systemd\-fsck" /var/log/syslog'
 alias zz='axel'
 
-# show system's current rootfs status
-grep -q "overlayroot=tmpfs" /proc/cmdline && \
-        echo -e "\n\e[31m===== running ROFS =====\e[0m" || \
-        echo -e "\n\e[32m===== running RWFS =====\e[0m"
+# print rootfs status automatically
+pov
 
+# vim: set sw=2 et ts=2:

@@ -127,7 +127,14 @@ fi
 
 if [ $CONF_FS -eq $RB2_FS ]
 then
-  echo "CONF FS($CONF_FS) is same as RB2 FS($RB2_FS)"
+  # echo "CONF FS($CONF_FS) is same as RB2 FS($RB2_FS)"
+  echo -n "current system is already configured as 'reboot to "
+  if [ $RB2_FS -eq 0 ]
+  then
+    echo "[ROFS]'"
+  else
+    echo "[RWFS]'"
+  fi
   echo "===> no changes."
   exit 0
 fi
