@@ -33,3 +33,5 @@ DISABLE_FIRST_BOOT_USER_RENAME=1
 WPA_COUNTRY=US
 # enable ssh server
 ENABLE_SSH=1
+
+# vim: set sw=2 et ts=2:
