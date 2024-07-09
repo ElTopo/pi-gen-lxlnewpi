@@ -13,3 +13,6 @@ bvi
 btop
 lsof
 axel
+
+# lxl: tested candidates (but not approved, to keep the image small)
+# autofs

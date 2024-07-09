@@ -5,12 +5,12 @@ touch ${ROOTFS_DIR}/boot/firmware/ssh
 
 # update /etc/fstab with lxl's tmpfs partitions
 cat ${BASE_DIR}/lxlnewpi-dfs/lxl-tmpfs-fstab >> ${ROOTFS_DIR}/etc/fstab
-# create /etc/cron.d/lxl-cron-boot
+# create /etc/cron.d/lxl-tmpfs-boot-cron
 mkdir -p ${ROOTFS_DIR}/etc/cron.d/
-cp -f  ${BASE_DIR}/lxlnewpi-dfs/lxl-cron-boot ${ROOTFS_DIR}/etc/cron.d/
-# create /root/bin/cron-boot.sh
+cp -f  ${BASE_DIR}/lxlnewpi-dfs/lxl-tmpfs-boot-cron ${ROOTFS_DIR}/etc/cron.d/
+# create /root/bin/tmpfs-boot.sh
 mkdir -p ${ROOTFS_DIR}/root/bin/
-cp -f  ${BASE_DIR}/lxlnewpi-dfs/cron-boot.sh ${ROOTFS_DIR}/root/bin/
+cp -f  ${BASE_DIR}/lxlnewpi-dfs/tmpfs-boot.sh ${ROOTFS_DIR}/root/bin/
 # update ~/.profile
 echo " "  >> ${ROOTFS_DIR}/home/${FIRST_USER_NAME}/.profile
 echo "# lxlp, a temp solution before setting up your dotdfs" >> ${ROOTFS_DIR}/home/${FIRST_USER_NAME}/.profile
