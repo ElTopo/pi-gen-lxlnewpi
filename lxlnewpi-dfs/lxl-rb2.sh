@@ -140,19 +140,20 @@ then
   exit 0
 fi
 
+# at this point, need 'sudo' to change system configuration
 UID=$(id -u)
 if [ $UID -ne 0 ] 
 then
+  # not executing this script as 'root', issue a warning and will use 'sudo' if necessary
   echo ""
-  echo "${RED}use 'sudo' to run this script to change system configuration!${NC}"
-  exit 1
+  echo "${RED}'sudo' is required to change system configuration!${NC}"
 fi
 
 if [ $(raspi-config nonint get_bootro_conf) -ne 0 ]
 then
   # bootpar is NOT set to 'ro' in fstab
   # always change bootpar to 'ro' in fstab
-  if raspi-config nonint enable_bootro
+  if sudo raspi-config nonint enable_bootro
   then
     echo "===> bootpar is configured as 'ro' in fstab."
   else
@@ -164,7 +165,7 @@ fi
 if [ $RB2_FS -eq 0 ]
 then
   # change to rofs
-  if raspi-config nonint enable_overlayfs
+  if sudo raspi-config nonint enable_overlayfs
   then
     echo "===> system is configured, reboot to 'ROFS'."
   else
@@ -175,7 +176,7 @@ fi
 if [ $RB2_FS -eq 1 ]
 then
   # change to rwfs
-  if raspi-config nonint disable_overlayfs
+  if sudo raspi-config nonint disable_overlayfs
   then
     echo "===> system is configured, reboot to 'RWFS'."
   else
