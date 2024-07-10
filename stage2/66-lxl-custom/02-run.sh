@@ -11,6 +11,8 @@ cp -f  ${BASE_DIR}/lxlnewpi-dfs/lxl-tmpfs-boot-cron ${ROOTFS_DIR}/etc/cron.d/
 # create /root/bin/tmpfs-boot.sh
 mkdir -p ${ROOTFS_DIR}/root/bin/
 cp -f  ${BASE_DIR}/lxlnewpi-dfs/tmpfs-boot.sh ${ROOTFS_DIR}/root/bin/
+# create /root/bin/rpisdimgbkup.sh
+cp -f  ${BASE_DIR}/lxlnewpi-dfs/rpisdimgbkup.sh ${ROOTFS_DIR}/root/bin/
 # update ~/.profile
 echo " "  >> ${ROOTFS_DIR}/home/${FIRST_USER_NAME}/.profile
 echo "# lxlp, a temp solution before setting up your dotdfs" >> ${ROOTFS_DIR}/home/${FIRST_USER_NAME}/.profile
