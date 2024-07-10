@@ -37,8 +37,8 @@
 ```
 
 ### TODOs
-. root's cronjob to remount /boot/firmware as 'ro' if it's mounted as 'rw'
-. dpkg-pre-invoke script in /etc/apt/apt.conf.d/ to remount /boot/firmware to 'rw' \
+* root's cronjob to remount /boot/firmware as 'ro' if it's mounted as 'rw'
+* dpkg-pre-invoke script in /etc/apt/apt.conf.d/ to remount /boot/firmware to 'rw' \
   before install/upgrade/remove packages
-. configure watchdog(?) to reboot system when memory is low... 
+* configure watchdog(?) to reboot system when memory is low... 
 
