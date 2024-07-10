@@ -15,7 +15,7 @@
 ```
 	dphys-swapfile fake-hwclock udisks2 
 ```
-* put these directories in memory as tmpfs partition:
+* put these directories in memory as tmpfs partitions:
 ```
 	/tmp            
 	/var/empty      
@@ -35,3 +35,10 @@
 	first user: lxl
 	password: 1234567890
 ```
+
+### TODOs
+. root's cronjob to remount /boot/firmware as 'ro' if it's mounted as 'rw'
+. dpkg-pre-invoke script in /etc/apt/apt.conf.d/ to remount /boot/firmware to 'rw' \
+  before install/upgrade/remove packages
+. configure watchdog(?) to reboot system when memory is low... 
+
