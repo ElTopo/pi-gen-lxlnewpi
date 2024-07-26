@@ -23,7 +23,7 @@
 	/var/log        
 	/var/cache      
 	/var/tmp        
-	/mnt/lxlcache   
+	/mnt/ram   
 ```
 * some quick aliases, custom $PS1 (in \~/lxlp)
 * a script (\~/bin/lxl-rb2.sh) to quickly switch between ROFS and RWFS
