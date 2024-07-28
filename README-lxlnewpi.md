@@ -8,7 +8,7 @@
 * set default locale to US UTF-8, timezone LA, keyboard US
 * install the following packages by default:
 ```
-	zram-tools busybox-static sshguard rsyslog tmux vim git tig
+	zram-tools caddy busybox-static sshguard rsyslog tmux vim git tig
 	apt-file apt-show-versions overlayroot bvi btop lsof axel
 ```
 * remove the following packages:
