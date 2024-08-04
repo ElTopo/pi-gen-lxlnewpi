@@ -15,4 +15,4 @@
 # yet aonther exfat usb drive to be mounted at /mnt/autofs/datadisk, using PARTUUID
 # datadisk		-fstype=exfat	PARTUUID="yyyy-yyyy"
 
-
+lxlusb	-fstype=auto	LABEL="lxlusb"
