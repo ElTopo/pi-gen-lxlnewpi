@@ -1,0 +1,18 @@
+# this file should be in /etc/
+# a 'master' automounter map should be pointing to this file by its name (/etc/auto.lxlusb)
+# note that the default /etc/auto.lxlusb has mount-point as /mnt/autofs
+#
+# The format of a master map entry is:
+#  mount-point [map-type[,format]:]map [options]
+#
+# see 'man autofs.conf' and 'man auto.master'
+
+# examples
+# a usb drive to be mounted at /mnt/autofs/SSD1T, using UUID
+# SSD1T			-fstype=auto    UUID="xxxx-xxxx"
+# aonther ext4 usb drive to be mounted at /mnt/autofs/myusb, using LABEL
+# myusb			-fstype=ext4    LABEL="label"
+# yet aonther exfat usb drive to be mounted at /mnt/autofs/datadisk, using PARTUUID
+# datadisk		-fstype=exfat	PARTUUID="yyyy-yyyy"
+
+

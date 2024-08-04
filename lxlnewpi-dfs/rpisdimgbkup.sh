@@ -1,8 +1,9 @@
 #!/bin/bash
 
-# this script uses dd to create an image of /dev/mmcblk0p2 (rootfs /)
+# this script uses dd to create image from sdcard /dev/mmcblk0
 
-# NOTE: this script only works when the system is running with overlay rootfs
+# NOTE: this script only works when the system is running with overlay rootfs,
+#       and the backup dir must be in a ext4 filesystem (i.e., not overlay)
 
 APP=$(basename $0)
 

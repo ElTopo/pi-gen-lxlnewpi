@@ -5,12 +5,16 @@ touch ${ROOTFS_DIR}/boot/firmware/ssh
 
 # update /etc/fstab with lxl's tmpfs partitions
 cat ${BASE_DIR}/lxlnewpi-dfs/lxl-tmpfs-fstab >> ${ROOTFS_DIR}/etc/fstab
-# create /etc/cron.d/lxl-tmpfs-boot-cron
+# create /etc/cron.d/lxl-boot-cron
 mkdir -p ${ROOTFS_DIR}/etc/cron.d/
-cp -f  ${BASE_DIR}/lxlnewpi-dfs/lxl-tmpfs-boot-cron ${ROOTFS_DIR}/etc/cron.d/
-# create /root/bin/tmpfs-boot.sh
+cp -f  ${BASE_DIR}/lxlnewpi-dfs/lxl-boot-cron ${ROOTFS_DIR}/etc/cron.d/
+# create /root/bin/boot.sh
 mkdir -p ${ROOTFS_DIR}/root/bin/
-cp -f  ${BASE_DIR}/lxlnewpi-dfs/tmpfs-boot.sh ${ROOTFS_DIR}/root/bin/
+cp -f  ${BASE_DIR}/lxlnewpi-dfs/boot.sh ${ROOTFS_DIR}/root/bin/
+# create /etc/auto.master.d/lxlusb.autofs and /etc/auto.lxlusb
+mkdir -p ${ROOTFS_DIR}/etc/auto.master.d/
+cp -f  ${BASE_DIR}/lxlnewpi-dfs/lxlusb.autofs ${ROOTFS_DIR}/etc/auto.master.d/
+cp -f  ${BASE_DIR}/lxlnewpi-dfs/auto.lxlusb ${ROOTFS_DIR}/etc/
 # create /root/bin/rpisdimgbkup.sh
 cp -f  ${BASE_DIR}/lxlnewpi-dfs/rpisdimgbkup.sh ${ROOTFS_DIR}/root/bin/
 # update ~/.profile

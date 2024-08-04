@@ -11,8 +11,10 @@ touch ./stage4/SKIP_IMAGES ./stage5/SKIP_IMAGES
 # source my config file so the script gets env $IMG_NAME
 source ./lxlnewpi-dfs/lxlnewpi-config
 
-echo "$APP: start building [$IMG_NAME]..."
+# clean before build if it has arg "cleanbuild"
+[ "$1" = "cleanbuild" ] && sudo rm -rf work
 
+echo "$APP: start building [$IMG_NAME]..."
 sudo ./build.sh -c ./lxlnewpi-dfs/lxlnewpi-config
 
 [ $? -eq 0 ] && echo "$APP: built OK." || echo "$APP: built failed with problem(s)!"

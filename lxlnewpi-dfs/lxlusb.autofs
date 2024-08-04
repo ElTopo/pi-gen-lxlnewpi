@@ -1,0 +1,9 @@
+# This is a 'master' automounter map and it has the following format:
+# mount-point [map-type[,format]:]map [options]
+# For details of the format look at auto.master(5).
+
+# this file should be in /etc/auto.master.d/
+# and make sure the system also has proper /etc/auto.lxlusb
+
+/mnt/autofs	/etc/auto.lxlusb	--timeout=60,defaults,nodev,nosuid,noatime,async
+
