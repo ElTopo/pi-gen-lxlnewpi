@@ -9,7 +9,7 @@
 * install the following packages by default:
 ```
 	zram-tools caddy busybox-static sshguard rsyslog tmux vim git tig
-	apt-file apt-show-versions overlayroot bvi btop lsof axel
+	autofs apt-file apt-show-versions overlayroot bvi btop lsof axel
 ```
 * remove the following packages:
 ```
