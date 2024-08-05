@@ -1,4 +1,13 @@
-This is a quick note for setting up lxlnew pi system.
+This is a quick note for setting up lxlnewpi system.
+
+lxlnewpi is designed totally headless, it only needs power + dhcpd ethernet connection.
+
+Frist run:
+. wait for 3 minutes or so, 'ping lxlnewpi.local' to get replies
+. 'ssh-copy-id lxl@lxlnewpi.local' with default password
+  (you may need to delete old ssh keys for lxlnewpi.local)
+. make sure passwordless 'ssh lxl@lxlnewpi.local' works.
+. change users' passwords! (both user 'lxl' and 'root')
 
 1. fix /etc/apt/trusted.gpg issue:
     mv -f /etc/apt/trusted.gpg /etc/apt/trusted.gpg.d/
@@ -11,7 +20,24 @@ This is a quick note for setting up lxlnew pi system.
 3. change hostname:
    edit /etc/hostname and /etc/hosts
 
-4. restore .ssh keys from backup
+4. as user 'root' , do 'crontab -e', add the following lines:
+		# lxl
+		MAILTO=""
 
-5. get dotdfs from git
+		0 * * * * root /usr/local/sbin/lxl-chkbpro.sh
+
+5. as user 'lxl', do 'crontab -e', add the following lines:
+		# lxl
+		MAILTO=""
+
+		@reboot sleep 600 && apt list > /tmp/aptlist
+
+		0 4 * * * apt list > /tmp/aptlist
+
+========= reboot the system, make sure it works as expected ========
+
+Later:
+1. restore user lxl's .ssh keys from backup
+
+2. get dotdfs from git
 
