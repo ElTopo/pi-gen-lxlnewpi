@@ -1,6 +1,19 @@
-This is a quick note for setting up lxlnewpi system.
+This is a quick note for setting up newly created lxlnewpi system.
 
+This folder, /root/lxlnewpi/, contains quick note (this file, i.e., readme.lxlnewpi.txt),
+and some configure files:
+. static-eth0.nmconnection				-> /etc/NetworkManager/system-connections/
+. Caddyfile.rp8080						-> /etc/caddy/Caddyfile
+(configure files of autofs/cron are pre-installed because they don't overwrite package files)
+
+After you properly configured your new system, feel free to delete /root/lxlnewpi/
+
+=======================================================================================
 lxlnewpi is designed totally headless, it only needs power + dhcpd ethernet connection.
+	.local domain name: lxlnewpi.local
+	ssh user: lxl
+	password: 1234567890
+=======================================================================================
 
 Frist run:
 . wait for 3 minutes or so, 'ping lxlnewpi.local' to get replies
@@ -17,13 +30,15 @@ Frist run:
    then copy it to /etc/NetworkManager/system-connections/
 	sudo cp static-eth0.nmconnection /etc/NetworkManager/system-connections/
 
-3. as user 'root' , do 'crontab -e', add the following lines:
+3. restore user lxl's .ssh keys from backup
+
+4. as user 'root' , do 'crontab -e', add the following lines:
 		# lxl
 		MAILTO=""
 
 		0 * * * * /usr/local/sbin/lxl-chkbpro.sh
 
-4. as user 'lxl', do 'crontab -e', add the following lines:
+5. as user 'lxl', do 'crontab -e', add the following lines:
 		# lxl
 		MAILTO=""
 
@@ -31,16 +46,18 @@ Frist run:
 
 		0 4 * * * apt list > /tmp/aptlist
 
-5. chenage /etc/default/zramswap:
+6. chenage /etc/default/zramswap:
 		PERCENT=80
 
-6. (before reboot) change hostname:
+7. (the last step to do before the first reboot) change hostname:
    edit /etc/hostname and /etc/hosts
 
 ========= reboot the system, make sure it works as expected ========
 
 Later:
-1. restore user lxl's .ssh keys from backup
 
-2. get dotdfs from git
+1. set up git repositories
 
+2. get dotdfs from git repo
+
+# vim: set sw=2 et ts=2:

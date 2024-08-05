@@ -19,6 +19,7 @@ cp -f  ${BASE_DIR}/lxlnewpi-dfs/boot.sh ${ROOTFS_DIR}/root/bin/
 mkdir -p ${ROOTFS_DIR}/root/lxlnewpi/
 cp -f  ${BASE_DIR}/lxlnewpi-dfs/readme.lxlnewpi.txt ${ROOTFS_DIR}/root/lxlnewpi/
 cp -f  ${BASE_DIR}/lxlnewpi-dfs/static-eth0.nmconnection ${ROOTFS_DIR}/root/lxlnewpi/
+cp -f  ${BASE_DIR}/lxlnewpi-dfs/Caddyfile.rp8080 ${ROOTFS_DIR}/root/lxlnewpi/
 # create dpkg-pre-invoke script
 mkdir -p ${ROOTFS_DIR}/etc/apt/apt.conf.d/ ${ROOTFS_DIR}/usr/local/bin/ ${ROOTFS_DIR}/usr/local/sbin/
 cp -f  ${BASE_DIR}/lxlnewpi-dfs/lxl-dpkg-pre-invoke.sh ${ROOTFS_DIR}/usr/local/sbin/
