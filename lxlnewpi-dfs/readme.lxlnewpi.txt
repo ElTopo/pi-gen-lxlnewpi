@@ -34,6 +34,9 @@ Frist run:
 
 		0 4 * * * apt list > /tmp/aptlist
 
+6. chenage /etc/default/zramswap: 
+		PERCENT=80
+
 ========= reboot the system, make sure it works as expected ========
 
 Later:
