@@ -1,0 +1,6 @@
+# 55lxl-dpkg-pre-invoke (lxl)
+#   make sure some read-only paritions are remounted as writable for installing packages
+#   this file should be in /etc/apt/apt.conf.d/
+
+DPkg::Pre-Invoke { "/root/bin/lxl-dpkg-pre-invoke.sh"; };
+
