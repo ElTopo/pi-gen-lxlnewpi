@@ -56,8 +56,13 @@ Frist run:
 
 Later:
 
-1. set up git repositories
+1. set up LAN VPN, make sure .local domain name works
 
-2. get dotdfs from git repo
+2. set up git repositories
+
+3. get dotdfs from git repo
+
+4. 'sudo raspi-config' 
+    Performance Options / Overclock, set to Medium
 
 # vim: set sw=2 et ts=2:
