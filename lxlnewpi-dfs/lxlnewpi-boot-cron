@@ -1,5 +1,5 @@
 # this file should be installed in /etc/cron.d/
 MAILTO=""
-@reboot root /root/bin/boot.sh
+@reboot root /root/lxlnewpi/lxlnewpi-boot.sh
 
 # vim: set sw=2 et ts=2:

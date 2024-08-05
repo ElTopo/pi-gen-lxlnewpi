@@ -15,7 +15,7 @@ PROG=$(basename $0)
 # if there's already a 'lxl' service, let it do the work
 if [ -r /etc/init.d/lxl ] ; then
   logger -t $PROG "handing over to /etc/init.d/lxl..."
-  logger -t $PROG "you should remove /etc/cron.d/lxl-boot-cron and /root/bin/boot.sh"
+  logger -t $PROG "you should remove /etc/cron.d/lxlnewpi-boot-cron and /root/lxlnewpi/lxlnewpi-boot.sh"
   exit 0
 fi
 

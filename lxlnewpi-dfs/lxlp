@@ -97,6 +97,7 @@ alias vnetl='netstat -avW 2> /dev/null | grep -v unix | grep --color=auto LISTEN
 alias vnetst='netstat -avW 2> /dev/null | grep -v unix'
 alias vpnete='sudo sh -c "netstat -avpW 2> /dev/null | grep --color=auto ESTABLISHED"'
 alias vpnetl='sudo sh -c "netstat -avpW 2> /dev/null | grep --color=auto LISTEN"'
+alias vim='vi +"set mouse="'
 alias vv='vi -MR +"unmap gx" +"map q :qa!<CR>" +"map g :1<CR>" +"map G :$<CR>" +"map <Space> <C-D>" +"map b <C-U>" +"map f <C-D>" +"set mouse="'
 alias ws='w -s'
 alias xfsck='grep "systemd\-fsck" /var/log/syslog'

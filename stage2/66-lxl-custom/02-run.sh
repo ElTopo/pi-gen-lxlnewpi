@@ -7,16 +7,14 @@ touch ${ROOTFS_DIR}/boot/firmware/ssh
 cat ${BASE_DIR}/lxlnewpi-dfs/lxl-tmpfs-fstab >> ${ROOTFS_DIR}/etc/fstab
 # create /etc/cron.d/lxl-boot-cron
 mkdir -p ${ROOTFS_DIR}/etc/cron.d/
-cp -f  ${BASE_DIR}/lxlnewpi-dfs/lxl-boot-cron ${ROOTFS_DIR}/etc/cron.d/
+cp -f  ${BASE_DIR}/lxlnewpi-dfs/lxlnewpi-boot-cron ${ROOTFS_DIR}/etc/cron.d/
 # update root's ~/.profile
 echo " "  >> ${ROOTFS_DIR}/root/.profile
 echo "# lxlp, a temp solution before setting up your dotdfs" >> ${ROOTFS_DIR}/root/.profile
 echo ". ~lxl/lxlp" >> ${ROOTFS_DIR}/root/.profile
-# create /root/bin/boot.sh
-mkdir -p ${ROOTFS_DIR}/root/bin/
-cp -f  ${BASE_DIR}/lxlnewpi-dfs/boot.sh ${ROOTFS_DIR}/root/bin/
 # create notes/files in /root/lxlnewpi/
 mkdir -p ${ROOTFS_DIR}/root/lxlnewpi/
+cp -f  ${BASE_DIR}/lxlnewpi-dfs/lxlnewpi-boot.sh ${ROOTFS_DIR}/root/lxlnewpi/
 cp -f  ${BASE_DIR}/lxlnewpi-dfs/readme.lxlnewpi.txt ${ROOTFS_DIR}/root/lxlnewpi/
 cp -f  ${BASE_DIR}/lxlnewpi-dfs/static-eth0.nmconnection ${ROOTFS_DIR}/root/lxlnewpi/
 cp -f  ${BASE_DIR}/lxlnewpi-dfs/Caddyfile.rp8080 ${ROOTFS_DIR}/root/lxlnewpi/
