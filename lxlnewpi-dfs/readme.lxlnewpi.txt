@@ -17,16 +17,13 @@ Frist run:
    then copy it to /etc/NetworkManager/system-connections/
 	sudo cp static-eth0.nmconnection /etc/NetworkManager/system-connections/
 
-3. change hostname:
-   edit /etc/hostname and /etc/hosts
-
-4. as user 'root' , do 'crontab -e', add the following lines:
+3. as user 'root' , do 'crontab -e', add the following lines:
 		# lxl
 		MAILTO=""
 
-		0 * * * * root /usr/local/sbin/lxl-chkbpro.sh
+		0 * * * * /usr/local/sbin/lxl-chkbpro.sh
 
-5. as user 'lxl', do 'crontab -e', add the following lines:
+4. as user 'lxl', do 'crontab -e', add the following lines:
 		# lxl
 		MAILTO=""
 
@@ -34,8 +31,11 @@ Frist run:
 
 		0 4 * * * apt list > /tmp/aptlist
 
-6. chenage /etc/default/zramswap: 
+5. chenage /etc/default/zramswap:
 		PERCENT=80
+
+6. (before reboot) change hostname:
+   edit /etc/hostname and /etc/hosts
 
 ========= reboot the system, make sure it works as expected ========
 

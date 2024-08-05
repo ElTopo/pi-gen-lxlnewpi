@@ -12,6 +12,9 @@
 
 PROG=$(basename $0)
 
+# if there's already a 'lxl' service, let it do the work
+[ -r /etc/init.d/lxl ] && exit 0
+
 logger -t $PROG "starting..."
 
 # for systemd
