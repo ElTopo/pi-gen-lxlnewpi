@@ -31,9 +31,12 @@ if [ $? -ne 0 ] ; then
   sudo mkdir -p "${MPDIR}"
   sudo mount "${WORKFSIMAGE}" "${MPDIR}" || \
       { echo "${APP}: failed to mount [${MPDIR}!"; exit 1; }
+else
+  sudo mount -o remount,rw "${WORKFSIMAGE}" "${MPDIR}" || \
+      { echo "${APP}: failed to re-mount [${MPDIR} (rw)!"; exit 1; }
 fi
 
-WORKDIR="${MPDIR}/work/"
+WORKDIR="${MPDIR}/work"
 
 CFGF=/dev/shm/lxlnewpi-config
 cp -f ./lxlnewpi-dfs/lxlnewpi-config ${CFGF}
@@ -49,5 +52,8 @@ sudo ./build.sh -c ${CFGF}
 
 [ $? -eq 0 ] && echo "$APP: built OK." || echo "$APP: built failed with problem(s)!"
 echo "$APP: Check [${WORKDIR}/$IMG_NAME/build.log] for details."
+
+sudo mount -o remount,ro "${WORKFSIMAGE}" "${MPDIR}" || \
+    { echo "${APP}: failed to re-mount [${MPDIR} (ro)!"; exit 1; }
 
 # vim: set sw=2 et ts=2:
