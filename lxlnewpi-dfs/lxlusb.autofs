@@ -5,5 +5,5 @@
 # this file should be in /etc/auto.master.d/
 # and make sure the system also has proper /etc/auto.lxlusb
 
-/mnt/autofs	/etc/auto.lxlusb	--timeout=60,defaults,nodev,nosuid,noatime,async
+/mnt/autofs	/etc/auto.lxlusb	--timeout=600,defaults,nodev,nosuid,noatime,async
 

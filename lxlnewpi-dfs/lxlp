@@ -9,6 +9,12 @@
 #   . this_file
 # in your ~/.profile
 
+if [ -r /etc/profile.d/lxl.sh ]
+then
+  # let /etc/profile.d/lxl.sh do it...
+  return
+fi
+
 # bash prompt
 iam=$(whoami)
 if [ "$iam" = "root" ] ; then
